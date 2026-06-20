@@ -1,4 +1,4 @@
-# 🚀 Faisal Khan | Professional Web Portfolio
+# 🚀 Faisal Adnan | Professional Web Portfolio
 
 Welcome to my personal web portfolio repository! This project serves as a digital showcase of my technical skills, software engineering projects, experience, and accomplishments. It is optimized to be fast, responsive, and interactive.
 
