@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  cursor: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #050505;
+  color: #EAEAEA;
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Custom scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #C1121F; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #D4A017; }
+
+/* ── Selection ──────────────────────────────────────────────────── */
+::selection { background: #C1121F30; color: #EAEAEA; }
+
+/* ── Cursor hide on interactive ─────────────────────────────────── */
+a, button, [data-hover] { cursor: none; }
+
+/* ── CRT scanlines overlay ──────────────────────────────────────── */
+.scanlines::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9980;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+}
+
+/* ── Glitch keyframes ───────────────────────────────────────────── */
+@keyframes glitch1 {
+  0%, 100% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, 0); }
+  20%       { clip-path: inset(92% 0  1% 0); transform: translate(1px, 0); }
+  40%       { clip-path: inset(43% 0  1% 0); transform: translate(3px, 0); }
+  60%       { clip-path: inset(25% 0 58% 0); transform: translate(-1px, 0); }
+  80%       { clip-path: inset(54% 0  7% 0); transform: translate(2px, 0); }
+}
+@keyframes glitch2 {
+  0%, 100% { clip-path: inset(25% 0 58% 0); transform: translate(2px, 0); }
+  20%       { clip-path: inset(54% 0  7% 0); transform: translate(-3px, 0); }
+  40%       { clip-path: inset(40% 0 61% 0); transform: translate(1px, 0); }
+  60%       { clip-path: inset(92% 0  1% 0); transform: translate(-2px, 0); }
+  80%       { clip-path: inset(43% 0  1% 0); transform: translate(3px, 0); }
+}
+
+/* ── Page transition wrapper ────────────────────────────────────── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Noise texture overlay ──────────────────────────────────────── */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9970;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ── Red glow utility ───────────────────────────────────────────── */
+.glow-red { box-shadow: 0 0 20px rgba(193, 18, 31, 0.3); }
+.glow-gold { box-shadow: 0 0 20px rgba(212, 160, 23, 0.3); }
+.text-glow-red { text-shadow: 0 0 20px rgba(193, 18, 31, 0.6); }
+.text-glow-gold { text-shadow: 0 0 20px rgba(212, 160, 23, 0.6); }
+
+/* ── Classified stamp ───────────────────────────────────────────── */
+.classified-stamp {
+  border: 3px solid #C1121F;
+  color: #C1121F;
+  padding: 4px 12px;
+  font-family: var(--font-bebas);
+  letter-spacing: 0.3em;
+  transform: rotate(-8deg);
+  display: inline-block;
+  font-size: 1.5rem;
+  opacity: 0.85;
+  box-shadow: 0 0 12px rgba(193,18,31,0.3), inset 0 0 8px rgba(193,18,31,0.1);
+}
+
+/* ── Archive folder hover ───────────────────────────────────────── */
+.mission-folder {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mission-folder:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Rune circle ────────────────────────────────────────────────── */
+.rune-ring {
+  animation: runeSpin 20s linear infinite;
+}
+.rune-ring-reverse {
+  animation: runeSpin 15s linear infinite reverse;
+}
+
+@keyframes runeSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Data stream background ─────────────────────────────────────── */
+.data-stream-bg {
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 18px,
+    rgba(193,18,31,0.03) 18px,
+    rgba(193,18,31,0.03) 20px
+  );
+}
+
+/* ── Focus ring ─────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid #C1121F;
+  outline-offset: 2px;
+}
+
+/* ── Flicker animation ──────────────────────────────────────────── */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92%  { opacity: 1; }
+  93%  { opacity: 0.8; }
+  94%  { opacity: 1; }
+  96%  { opacity: 0.6; }
+  97%  { opacity: 1; }
+}
+
+/* ── Blink ──────────────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Pulse red ──────────────────────────────────────────────────── */
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 4px rgba(193,18,31,0.4); }
+  50%       { box-shadow: 0 0 12px rgba(193,18,31,0.8), 0 0 24px rgba(193,18,31,0.3); }
+}
+
+/* ── Stamp-in ───────────────────────────────────────────────────── */
+@keyframes stampIn {
+  0%   { transform: scale(3) rotate(-12deg); opacity: 0; }
+  50%  { transform: scale(0.9) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* ── Reveal ─────────────────────────────────────────────────────── */
+@keyframes reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+/* ── Scan line ──────────────────────────────────────────────────── */
+@keyframes scanLine {
+  0%   { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}

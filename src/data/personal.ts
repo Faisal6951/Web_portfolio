@@ -1,0 +1,40 @@
+export const personal = {
+  name: 'FAISAL ADNAN',
+  designation: 'FRONTEND OPERATIVE',
+  clearanceLevel: 'LEVEL 5 — CLASSIFIED',
+  caseNumber: 'FA-2024-0047',
+  fileDate: 'CLASSIFIED',
+  operativeId: 'AGT-7741-FA',
+  location: 'OKARA, PAKISTAN',
+  nationality: 'PAKISTANI',
+  status: 'ACTIVE',
+  specialization: 'Interactive Systems Architecture',
+  taglines: [
+    'ARCHITECT OF INTERACTIVE SYSTEMS',
+    'DIGITAL ASSASSIN',
+    'KEEPER OF FORBIDDEN INTERFACES',
+    'ENGINEER OF SILENT EXPERIENCES',
+  ],
+  biography: [
+    'Every interface is a system. Every system is a mission. Operative FA-7741 has demonstrated exceptional proficiency in constructing digital environments that operate with lethal precision.',
+    'Specializes in the architecture of high-impact frontend systems. Known for eliminating unnecessary complexity, dismantling legacy code structures, and replacing them with engineered precision.',
+    'Operational history includes multiple classified deployments across e-commerce infrastructure, data intelligence platforms, and content delivery systems.',
+  ],
+  redactedFacts: [
+    'Date of birth: 04/05/2004',
+    'Home base: Okara, Pakistan',
+    'Languages spoken: Urdu, English',
+    'Previous engagements: [RESTRICTED ACCESS]',
+  ],
+  stats: [
+    { label: 'MISSIONS COMPLETED', value: '12+' },
+    { label: 'YEARS ACTIVE', value: '3+' },
+    { label: 'SYSTEMS DEPLOYED', value: '20+' },
+    { label: 'THREAT LEVEL', value: 'APEX' },
+  ],
+  openTo: ['Full-time positions', 'Freelance missions', 'Contract operations'],
+  email: 'faisaladnan.dev@gmail.com',
+  github: 'https://github.com/Faisal6951',
+  indeed:
+    'https://profile.indeed.com/?hl=en_PK&co=PK&from=gnav-jobseeker-profile--profile-one-frontend',
+};
